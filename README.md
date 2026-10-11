@@ -56,3 +56,9 @@ Low gravity allows the player to jump higher and stay airborne longer. High grav
 The project uses CharacterBody3D for player movement, StaticBody3D for platforms, and CollisionShape3D for collision detection.
 
 These mechanics can help with planetary exploration in Circa.
+## Player Controls
+- WASD: Move around
+- Space: Jump
+- Mouse: Look around
+- Escape: Release mouse
+- Reset Player: Return to starting position
