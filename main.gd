@@ -99,6 +99,7 @@ func _make_ui() -> void:
 	choices.add_item("Low gravity (3.0)")
 	choices.add_item("Normal gravity (9.8)")
 	choices.add_item("High gravity (20.0)")
+	choices.add_item("Extreme gravity (35.0)")
 	choices.select(1)
 	choices.item_selected.connect(_change_gravity)
 	panel.add_child(choices)
@@ -115,7 +116,7 @@ func _make_ui() -> void:
 	_update_label()
 
 func _change_gravity(index: int) -> void:
-	var values := [3.0, 9.8, 20.0]
+	var values := [3.0, 9.8, 20.0, 35.0]
 	gravity_strength = values[index]
 	_update_label()
 
