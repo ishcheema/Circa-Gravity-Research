@@ -47,3 +47,12 @@ Demo video: [paste your video URL]
 @instructors
 
 Apply the `enhancement` label and `Proof Of Concept` milestone in the team repository.
+## Gravity Research Findings
+
+This prototype demonstrates how different gravity strengths affect player movement and jumping in Godot 4.
+
+Low gravity allows the player to jump higher and stay airborne longer. High gravity results in shorter jumps and faster falls.
+
+The project uses CharacterBody3D for player movement, StaticBody3D for platforms, and CollisionShape3D for collision detection.
+
+These mechanics can help with planetary exploration in Circa.
