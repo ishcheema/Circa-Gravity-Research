@@ -62,3 +62,9 @@ These mechanics can help with planetary exploration in Circa.
 - Mouse: Look around
 - Escape: Release mouse
 - Reset Player: Return to starting position
+## Gravity Settings
+- Low Gravity (3.0): Higher jumps and slower falling
+- Normal Gravity (9.8): Standard movement
+- High Gravity (20.0): Lower jumps and faster falling
+
+Gravity can be changed during gameplay using the dropdown menu.
