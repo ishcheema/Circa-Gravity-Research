@@ -13,8 +13,15 @@ func _ready() -> void:
 	_make_world()
 	_make_ui()
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-
+	
 func _make_world() -> void:
+	var world_environment := WorldEnvironment.new()
+	var environment := Environment.new()
+	environment.background_mode = Environment.BG_COLOR
+	environment.background_color = Color(0.45, 0.7, 0.95)
+	world_environment.environment = environment
+	add_child(world_environment)
+
 	var light := DirectionalLight3D.new()
 	light.rotation_degrees = Vector3(-55, -30, 0)
 	add_child(light)
@@ -27,6 +34,9 @@ func _make_world() -> void:
 	var box := BoxMesh.new()
 	box.size = Vector3(35, 1, 35)
 	floor_mesh.mesh = box
+	var floor_material := StandardMaterial3D.new()
+	floor_material.albedo_color = Color(0.15, 0.45, 0.25)
+	floor_mesh.material_override = floor_material
 	floor_mesh.position.y = -0.5
 	floor_body.add_child(floor_mesh)
 
@@ -47,6 +57,9 @@ func _make_world() -> void:
 	capsule.radius = 0.4
 	capsule.height = 1.8
 	player_mesh.mesh = capsule
+	var player_material := StandardMaterial3D.new()
+	player_material.albedo_color = Color(0.1, 0.5, 1.0)
+	player_mesh.material_override = player_material
 	player.add_child(player_mesh)
 
 	var collider := CollisionShape3D.new()
@@ -72,6 +85,20 @@ func _make_world() -> void:
 		var landmark_mesh := BoxMesh.new()
 		landmark_mesh.size = Vector3(1.5, 1.0 + i * 0.3, 1.5)
 		landmark.mesh = landmark_mesh
+
+		var block_colors := [
+			Color.RED,
+			Color.ORANGE,
+			Color.YELLOW,
+			Color.GREEN,
+			Color.CYAN,
+			Color.PURPLE
+]
+
+		var block_material := StandardMaterial3D.new()
+		block_material.albedo_color = block_colors[i]
+		landmark.material_override = block_material
+
 		block_body.add_child(landmark)
 
 		var block_collision := CollisionShape3D.new()
