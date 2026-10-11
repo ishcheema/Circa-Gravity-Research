@@ -157,7 +157,8 @@ func _physics_process(delta: float) -> void:
 
 	var direction := player.global_transform.basis * Vector3(movement.x, 0, movement.y)
 
-	player.velocity.x = direction.x * speed
-	player.velocity.z = direction.z * speed
+	var current_speed := 10.0 if Input.is_key_pressed(KEY_SHIFT) else speed
+	player.velocity.x = direction.x * current_speed
+	player.velocity.z = direction.z * current_speed
 
 	player.move_and_slide()
